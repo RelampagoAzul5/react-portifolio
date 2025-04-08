@@ -71,7 +71,10 @@ export function Menu() {
       )}
       <nav ref={menuRef} className={`menu ${isVisible ? 'visible' : ''}`}>
         <div className="my-icon">
-          <img src="./src/img/my_icon.jpg" alt="Uma pequena foto de perfil" />
+          <img
+            src="./assets/img/my_icon.jpg"
+            alt="Uma pequena foto de perfil"
+          />
           <div className="menu-infos">
             <p className="name">Giovanni Henrique</p>
             <a
@@ -91,7 +94,7 @@ export function Menu() {
               rel="noreferrer"
             >
               <img
-                src="./src/img/icons/Instagram_icon.png"
+                src="./assets/img/icons/Instagram_icon.png"
                 alt="icone do instagram"
                 className="Instagram logo"
               />
@@ -105,7 +108,7 @@ export function Menu() {
               rel="noreferrer"
             >
               <img
-                src="./src/img/icons/github_icon.png"
+                src="./assets/img/icons/github_icon.png"
                 alt="icone do github"
                 className="Github logo"
               />
@@ -119,7 +122,7 @@ export function Menu() {
               rel="noreferrer"
             >
               <img
-                src="./src/img/icons/linkedin_icon.png"
+                src="./assets/img/icons/linkedin_icon.png"
                 alt="icone do linkedin"
                 className="Linkedin logo"
               />
