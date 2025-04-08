@@ -4,3 +4,15 @@
   outline: none;
   box-sizing: border-box;
 }
+html{
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+body {
+  background-color: #edddd4;
+  font-family:  sans-serif;
+}
+.invisible {
+  display: none;
+}
+
