@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Nav } from './styled';
+import React, { useEffect, useRef, useState } from 'react';
+import { Header } from './styled';
 
 const maxMenuWidth = 1025;
 
@@ -9,6 +9,8 @@ export function Menu() {
   >('general-information');
   const [isVisible, setIsVisible] = useState(true);
   const [showToggleButton, setShowToggleButton] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const toggleButtonRef = useRef<HTMLButtonElement>(null);
 
   const handleSelect = (
     section: 'general-information' | 'portifolio' | 'contact',
@@ -33,14 +35,41 @@ export function Menu() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as Node;
+      const clickedOutsideMenu =
+        menuRef.current && !menuRef.current.contains(target);
+      const clickedOutsideButton =
+        toggleButtonRef.current && !toggleButtonRef.current.contains(target);
+
+      if (
+        showToggleButton &&
+        isVisible &&
+        clickedOutsideMenu &&
+        clickedOutsideButton
+      ) {
+        setIsVisible(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isVisible, showToggleButton]);
   return (
-    <Nav>
+    <Header>
       {showToggleButton && (
-        <button className="toggle-menu" onClick={handleToggleMenu}>
+        <button
+          ref={toggleButtonRef}
+          className="toggle-menu"
+          onClick={handleToggleMenu}
+        >
           {isVisible ? 'X' : '☰'}
         </button>
       )}
-      <section className={`menu ${isVisible ? 'visible' : ''}`}>
+      <nav ref={menuRef} className={`menu ${isVisible ? 'visible' : ''}`}>
         <div className="my-icon">
           <img src="./src/img/my_icon.jpg" alt="Uma pequena foto de perfil" />
           <div className="menu-infos">
@@ -55,39 +84,48 @@ export function Menu() {
           </div>
         </div>
         <div className="menu-icons">
-          <a
-            href="https://www.instagram.com/tech_relampago/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <img
-              src="./src/img/icons/Instagram_icon.png"
-              alt="icone do instagram"
-              className="Instagram logo"
-            />
-          </a>
-          <a
-            href="https://github.com/RelampagoAzul5"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <img
-              src="./src/img/icons/github_icon.png"
-              alt="icone do instagram"
-              className="Github logo"
-            />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/giovanni-henrique-de-paula-fernandes-a7512b199/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <img
-              src="./src/img/icons/linkedin_icon.png"
-              alt="icone do instagram"
-              className="Linkedin logo"
-            />
-          </a>
+          <div className="icon">
+            <a
+              href="https://www.instagram.com/tech_relampago/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img
+                src="./src/img/icons/Instagram_icon.png"
+                alt="icone do instagram"
+                className="Instagram logo"
+              />
+            </a>
+            <span className="tooltip instagram-tp">Instagram</span>
+          </div>
+          <div className="icon">
+            <a
+              href="https://github.com/RelampagoAzul5"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img
+                src="./src/img/icons/github_icon.png"
+                alt="icone do github"
+                className="Github logo"
+              />
+            </a>
+            <span className="tooltip github-tp">Github</span>
+          </div>
+          <div className="icon">
+            <a
+              href="https://www.linkedin.com/in/giovanni-henrique-de-paula-fernandes-a7512b199/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img
+                src="./src/img/icons/linkedin_icon.png"
+                alt="icone do linkedin"
+                className="Linkedin logo"
+              />
+            </a>
+            <span className="tooltip linkedin-tp">LinkedIn</span>
+          </div>
         </div>
         <div className="links">
           <a
@@ -124,7 +162,7 @@ export function Menu() {
           </a>{' '}
           &copy;
         </div>
-      </section>
-    </Nav>
+      </nav>
+    </Header>
   );
 }

@@ -6,7 +6,7 @@ import {
   tertiaryColor,
 } from '../../configs/colors';
 
-export const Nav = styled.nav`
+export const Header = styled.header`
   display: flex;
   flex-direction: column;
 
@@ -99,8 +99,9 @@ export const Nav = styled.nav`
   .my-icon .menu-infos a {
     margin-left: 0.5rem;
     margin-top: 1rem;
-    color: ${tertiaryColor};
+    color: ${secondaryColor};
     font-size: 1.6rem;
+    font-weight: bold;
   }
 
   .toggle-menu {
@@ -118,14 +119,71 @@ export const Nav = styled.nav`
     display: flex;
     justify-content: space-around;
     align-items: center;
+    background-color: ${tertiaryColor};
+    margin: 0 auto;
+    width: 30rem;
+    margin-top: 1rem;
+    border-radius: 40px;
+    padding: 0.2rem;
   }
   .menu-icons .logo {
-    margin-top: 1rem;
     width: 6rem;
     border-radius: 40px;
+    padding: 0.1rem;
   }
   .menu-icons .Instagram {
-    width: 4rem;
+    padding: 0.4rem;
+    width: 5rem;
     border-radius: 10px;
+  }
+  .icon {
+    position: relative;
+    display: inline-block;
+  }
+  .tooltip {
+    font-size: 13px;
+    visibility: hidden;
+    opacity: 0;
+    width: max-content;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    padding: 6px 12px;
+    border-radius: 8px;
+    position: absolute;
+
+    left: 50%;
+    transform: translateX(-50%);
+    transition: opacity 0.3s;
+    z-index: 1;
+  }
+
+  .instagram-tp {
+    background-color: rgba(255, 2, 132, 0.8);
+    bottom: -45%;
+  }
+
+  .github-tp {
+    background-color: rgba(0, 0, 0, 0.8);
+    bottom: -35%;
+  }
+
+  .linkedin-tp {
+    background-color: rgba(0, 130, 251, 0.8);
+    bottom: -35%;
+  }
+
+  .Instagram:hover {
+    background-color: rgba(255, 2, 132, 0.2);
+  }
+  .Github:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+  .Linkedin:hover {
+    background-color: rgba(0, 130, 251, 0.2);
+  }
+  .icon:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
   }
 `;
