@@ -19,6 +19,10 @@ export function Menu() {
     setSelected(section);
   };
 
+  const handleClick = () => {
+    if (showToggleButton) setIsVisible(false);
+  };
+
   const handleToggleMenu = (): void => {
     setIsVisible((prev) => !prev);
   };
@@ -136,6 +140,7 @@ export function Menu() {
             to="/"
             className={`item ${selected === 'general-information' ? 'selected' : ''}`}
             onMouseEnter={() => handleSelect('general-information')}
+            onClick={handleClick}
           >
             Informações Gerais
           </Link>
@@ -143,6 +148,7 @@ export function Menu() {
             to="/portifolio"
             className={`item ${selected === 'portifolio' ? 'selected' : ''}`}
             onMouseEnter={() => handleSelect('portifolio')}
+            onClick={handleClick}
           >
             Portifólio
           </Link>
@@ -150,6 +156,7 @@ export function Menu() {
             to="/contact"
             className={`item ${selected === 'contact' ? 'selected' : ''}`}
             onMouseEnter={() => handleSelect('contact')}
+            onClick={handleClick}
           >
             Contato
           </Link>
