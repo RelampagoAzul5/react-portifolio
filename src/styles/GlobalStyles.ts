@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
-
+import * as colors from '../configs/colors';
 export default createGlobalStyle`* {
   margin: 0;
   padding: 0;
@@ -11,7 +11,7 @@ html{
   scroll-behavior: smooth;
 }
 body {
-  background-color: #edddd4;
+  background-color: ${colors.tertiaryColor};
   font-family:  sans-serif;
 }
 .invisible {
