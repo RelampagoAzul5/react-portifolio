@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Header } from './styled';
+import { Link } from 'react-router-dom';
 
 const maxMenuWidth = 1025;
 
@@ -131,27 +132,27 @@ export function Menu() {
           </div>
         </div>
         <div className="links">
-          <a
-            href="#general-information"
+          <Link
+            to="/"
             className={`item ${selected === 'general-information' ? 'selected' : ''}`}
             onMouseEnter={() => handleSelect('general-information')}
           >
             Informações Gerais
-          </a>
-          <a
-            href="#portifolio"
+          </Link>
+          <Link
+            to="/portifolio"
             className={`item ${selected === 'portifolio' ? 'selected' : ''}`}
             onMouseEnter={() => handleSelect('portifolio')}
           >
             Portifólio
-          </a>
-          <a
-            href="#contact"
+          </Link>
+          <Link
+            to="/contact"
             className={`item ${selected === 'contact' ? 'selected' : ''}`}
             onMouseEnter={() => handleSelect('contact')}
           >
             Contato
-          </a>
+          </Link>
         </div>
 
         <div className="menu-footer">

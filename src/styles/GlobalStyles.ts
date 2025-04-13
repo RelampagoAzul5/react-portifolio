@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 import * as colors from '../configs/colors';
 export default createGlobalStyle`* {
   margin: 0;
@@ -18,4 +18,7 @@ body {
   display: none;
 }
 
+`;
+export const Container = styled.section`
+  display: flex;
 `;
