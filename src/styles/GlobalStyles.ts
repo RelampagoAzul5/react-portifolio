@@ -11,7 +11,7 @@ html{
   scroll-behavior: smooth;
 }
 body {
-  background-color: ${colors.tertiaryColor};
+  background-color: ${colors.mainBgColor};
   font-family:  sans-serif;
 }
 .invisible {
