@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import GlobalStyles from './styles/GlobalStyles';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { Home } from './components/Home';
-import { Contact } from './components/Contact';
-import { Portifolio } from './components/Portifolio';
+import { Home } from './pages/Home';
+import { Contact } from './pages/Contact';
+import { Portifolio } from './pages/Portifolio';
 const router = createBrowserRouter([
   {
     path: '/',
