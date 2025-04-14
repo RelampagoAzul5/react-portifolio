@@ -40,8 +40,17 @@ export const Section = styled.section`
   section {
     margin-top: 10px;
   }
+  p {
+    margin-top: 10px;
+    font-size: 2rem;
+    color: ${colors.primaryColor};
+    background-color: ${colors.tertiaryColor};
+    padding: 1rem;
+    border-radius: 8px;
+    border: 3px solid ${colors.secondaryColor};
+  }
 `;
-export const Qualifications = styled.ul`
+export const Technologies = styled.ul`
   margin-top: 20px;
   width: 100%;
   display: grid;
@@ -61,10 +70,41 @@ export const Qualifications = styled.ul`
     display: flex;
     align-items: center;
     justify-content: center;
+    border: 3px solid ${colors.secondaryColor};
   }
 
   img {
     width: 16rem;
     max-width: 100%;
+  }
+`;
+export const Qualifications = styled.ul`
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 100%;
+  justify-content: center;
+  li {
+    display: flex;
+    width: 100%;
+    padding: 0 20rem;
+  }
+
+  a {
+    text-decoration: none;
+    font-size: 2rem;
+    max-width: 40rem;
+    color: ${colors.primaryColor};
+    background-color: ${colors.tertiaryColor};
+    padding: 1rem;
+    border-radius: 8px;
+    border: 3px solid ${colors.secondaryColor};
+    margin: 0 auto;
+    margin-top: 10px;
+  }
+  a:hover {
+    color: ${colors.tertiaryColor};
+    background-color: ${colors.primaryColor};
+    transition: all 200ms ease-in-out;
   }
 `;
