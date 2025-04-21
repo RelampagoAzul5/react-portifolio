@@ -30,7 +30,7 @@ export const Section = styled.section`
   h1 {
     font-size: 3rem;
     margin-top: 10px;
-    color: ${colors.emphasisTextColor};
+    color: ${colors.secondaryColor};
   }
   h2 {
     font-size: 30px;

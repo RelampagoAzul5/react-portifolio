@@ -78,6 +78,7 @@ export const Header = styled.header`
   .my-icon img {
     max-height: 14rem;
     border-radius: 360px;
+    background-color: #f7f7f7;
   }
 
   .my-icon .menu-infos {
@@ -86,7 +87,7 @@ export const Header = styled.header`
     display: flex;
     flex-direction: column;
     word-break: break-word;
-    white-space: normal; /* permite quebrar a linha */
+    white-space: normal;
     overflow-wrap: break-word;
   }
 
@@ -159,7 +160,7 @@ export const Header = styled.header`
   }
 
   .instagram-tp {
-    background-color: rgba(255, 2, 132, 0.8);
+    background-color: rgba(76, 124, 164, 0.8);
     bottom: -45%;
   }
 
@@ -169,18 +170,18 @@ export const Header = styled.header`
   }
 
   .linkedin-tp {
-    background-color: rgba(0, 130, 251, 0.8);
+    background-color: rgba(76, 124, 164, 0.8);
     bottom: -35%;
   }
 
   .Instagram:hover {
-    background-color: rgba(255, 2, 132, 0.2);
+    background-color: rgba(76, 124, 164, 0.2);
   }
   .Github:hover {
     background-color: rgba(0, 0, 0, 0.2);
   }
   .Linkedin:hover {
-    background-color: rgba(0, 130, 251, 0.2);
+    background-color: rgba(76, 124, 164, 0.2);
   }
   .icon:hover .tooltip {
     visibility: visible;
