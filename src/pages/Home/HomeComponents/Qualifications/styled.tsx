@@ -10,6 +10,7 @@ export const QualificationsSt = styled.ul`
   margin: 0;
   list-style: none;
   width: 100%;
+  margin-top: 10px;
   li {
     display: flex;
   }
