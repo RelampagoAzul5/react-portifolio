@@ -6,7 +6,6 @@ export const TechnologiesSt = styled.ul`
   width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  max-width: 800px;
   gap: 20px;
   list-style: none;
   padding: 0;
