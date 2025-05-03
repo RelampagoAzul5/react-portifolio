@@ -1,8 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Header } from './styled';
 import { Link } from 'react-router-dom';
-
-const maxMenuWidth = 1025;
+import LinkedinIcon from '../../icons/MediaIcons/LinkedInIcon';
+import InstagramAppIcon from '../../icons/MediaIcons/InstagramAppIcon';
+import GithubAppIcon from '../../icons/MediaIcons/GithubIcon';
 
 export function Menu() {
   const [selected, setSelected] = useState<
@@ -29,17 +30,16 @@ export function Menu() {
 
   useEffect(() => {
     const handleResize = () => {
-      const shouldHide = window.innerWidth < maxMenuWidth;
-      setIsVisible(!shouldHide);
-      setShowToggleButton(shouldHide);
+      const shouldShowToggle = window.innerWidth <= 1024; // 1024px como breakpoint
+      setIsVisible(!shouldShowToggle); // Visível em desktop, escondido em mobile inicialmente
+      setShowToggleButton(shouldShowToggle);
     };
 
-    handleResize();
+    handleResize(); // Configura o estado inicial
 
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
-
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as Node;
@@ -64,116 +64,98 @@ export function Menu() {
     };
   }, [isVisible, showToggleButton]);
   return (
-    <Header>
-      {showToggleButton && (
-        <button
-          ref={toggleButtonRef}
-          className="toggle-menu"
-          onClick={handleToggleMenu}
-        >
-          {isVisible ? 'X' : '☰'}
-        </button>
-      )}
-      <nav ref={menuRef} className={`menu ${isVisible ? 'visible' : ''}`}>
-        <div className="my-icon">
-          <img
-            src="./assets/img/my_icon.jpg"
-            alt="Uma pequena foto de perfil"
-          />
-          <div className="menu-infos">
-            <p className="name">Giovanni Henrique</p>
-            <a
-              href="https://github.com/RelampagoAzul5"
-              target="_blank"
-              rel="noreferrer"
-            >
-              relampagoazul5
-            </a>
-          </div>
-        </div>
-        <div className="menu-icons">
-          <div className="icon">
-            <a
-              href="https://www.instagram.com/tech_relampago/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <img
-                src="./assets/img/icons/Instagram_icon.png"
-                alt="icone do instagram"
-                className="Instagram logo"
-              />
-            </a>
-            <span className="tooltip instagram-tp">Instagram</span>
-          </div>
-          <div className="icon">
-            <a
-              href="https://github.com/RelampagoAzul5"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <img
-                src="./assets/img/icons/github_icon.png"
-                alt="icone do github"
-                className="Github logo"
-              />
-            </a>
-            <span className="tooltip github-tp">Github</span>
-          </div>
-          <div className="icon">
-            <a
-              href="https://www.linkedin.com/in/giovanni-henrique-de-paula-fernandes-a7512b199/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <img
-                src="./assets/img/icons/linkedin_icon.png"
-                alt="icone do linkedin"
-                className="Linkedin logo"
-              />
-            </a>
-            <span className="tooltip linkedin-tp">LinkedIn</span>
-          </div>
-        </div>
-        <div className="links">
-          <Link
-            to="/"
-            className={`item ${selected === 'general-information' ? 'selected' : ''}`}
-            onMouseEnter={() => handleSelect('general-information')}
-            onClick={handleClick}
+    <>
+      <Header>
+        {showToggleButton && (
+          <button
+            ref={toggleButtonRef}
+            className="toggle-menu"
+            onClick={handleToggleMenu}
           >
-            Informações Gerais
-          </Link>
-          <Link
-            to="/portifolio"
-            className={`item ${selected === 'portifolio' ? 'selected' : ''}`}
-            onMouseEnter={() => handleSelect('portifolio')}
-            onClick={handleClick}
-          >
-            Portifólio
-          </Link>
-          <Link
-            to="/contact"
-            className={`item ${selected === 'contact' ? 'selected' : ''}`}
-            onMouseEnter={() => handleSelect('contact')}
-            onClick={handleClick}
-          >
-            Contato
-          </Link>
-        </div>
+            {isVisible ? '✕' : '☰'}
+          </button>
+        )}
+        <nav ref={menuRef} className={`menu ${isVisible ? 'visible' : ''}`}>
+          <div className="my-icon">
+            <img
+              src="./assets/img/my_icon.jpg"
+              alt="Foto de perfil de Giovanni Henrique"
+            />
+            <div className="menu-infos">
+              <p className="name">Giovanni Henrique</p>
+              <p className="role">Desenvolvedor Web</p>
+            </div>
+          </div>
 
-        <div className="menu-footer">
-          Created by{' '}
-          <a
-            href="https://github.com/RelampagoAzul5"
-            target="_blank"
-            rel="noreferrer"
-          >
-            relampagoazul5
-          </a>{' '}
-          &copy;
-        </div>
-      </nav>
-    </Header>
+          <div className="menu-icons">
+            <div className="icon">
+              <a
+                href="https://github.com/RelampagoAzul5"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="GitHub"
+              >
+                <GithubAppIcon />
+                <span className="tooltip">GitHub</span>
+              </a>
+            </div>
+            <div className="icon">
+              <a
+                href="https://www.instagram.com/tech_relampago/"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Instagram"
+              >
+                <InstagramAppIcon />
+                <span className="tooltip">Instagram</span>
+              </a>
+            </div>
+            <div className="icon">
+              <a
+                href="https://www.linkedin.com/in/giovanni-henrique-de-paula-fernandes-a7512b199/"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="LinkedIn"
+              >
+                <LinkedinIcon />
+                <span className="tooltip">LinkedIn</span>
+              </a>
+            </div>
+          </div>
+
+          <div className="links">
+            <Link
+              to="/"
+              className={`item ${selected === 'general-information' ? 'selected' : ''}`}
+              onMouseEnter={() => handleSelect('general-information')}
+              onClick={handleClick}
+            >
+              Informações Gerais
+            </Link>
+            <Link
+              to="/portifolio"
+              className={`item ${selected === 'portifolio' ? 'selected' : ''}`}
+              onMouseEnter={() => handleSelect('portifolio')}
+              onClick={handleClick}
+            >
+              Portfólio
+            </Link>
+            <Link
+              to="/contact"
+              className={`item ${selected === 'contact' ? 'selected' : ''}`}
+              onMouseEnter={() => handleSelect('contact')}
+              onClick={handleClick}
+            >
+              Contato
+            </Link>
+          </div>
+
+          <div className="menu-footer">Created by Giovanni Henrique &copy;</div>
+        </nav>
+      </Header>
+      {isVisible && showToggleButton && (
+        <div className="menu-overlay" onClick={() => setIsVisible(false)} />
+      )}
+    </>
   );
 }

@@ -1,6 +1,11 @@
-import styled, { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 import * as colors from '../configs/colors';
-export default createGlobalStyle`* {
+export default createGlobalStyle`
+:root {
+    --menu-width: 320px;
+  }
+
+* {
   margin: 0;
   padding: 0;
   outline: none;
@@ -8,17 +13,22 @@ export default createGlobalStyle`* {
 }
 html{
   font-size: 62.5%;
-  scroll-behavior: smooth;
 }
 body {
   background-color: ${colors.mainBgColor};
   font-family:  sans-serif;
-}
+
+  @media (max-width: 1024px) {
+    margin-left: 0;
+    padding-left: 0;
+  }
+  @media (min-width: 1025px) {
+      padding-left: var(--menu-width);
+    }
+  }
+
 .invisible {
   display: none;
 }
 
-`;
-export const Container = styled.section`
-  display: flex;
 `;

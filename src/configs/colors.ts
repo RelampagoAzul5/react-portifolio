@@ -1,4 +1,5 @@
-export const primaryColor = '#000100';
-export const secondaryColor = '#4c7ca4';
-export const tertiaryColor = '#f8f8f8';
-export const mainBgColor = '#ededed';
+export const primaryColor = '#0a0a0a';
+export const secondaryColor = '#3a86ff';
+export const tertiaryColor = '#ffffff';
+export const mainBgColor = '#f5f5f5';
+export const accentColor = '#ff006e';

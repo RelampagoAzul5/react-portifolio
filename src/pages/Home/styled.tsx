@@ -3,50 +3,71 @@ import * as colors from '../../configs/colors';
 
 export const Main = styled.main`
   margin: 0 auto;
-  width: 150rem;
+  max-width: 120rem;
+  width: 90%;
   min-height: 90vh;
-  height: 100%;
+  padding: 2rem 0;
+
   h1 {
-    margin: 20px 0;
+    margin: 2rem 0;
     text-align: center;
-    display: flex;
-    justify-content: center;
-    font-size: 40px;
+    font-size: 3.2rem;
     color: ${colors.primaryColor};
+    font-weight: 600;
+    position: relative;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: ${colors.secondaryColor};
+      margin: 1rem auto 0;
+      border-radius: 2px;
+    }
   }
 `;
 
 export const Section = styled.section`
-  margin-top: 10px;
-  background-color: ${colors.primaryColor};
-  color: ${colors.tertiaryColor};
-  border-radius: 8px;
-  max-width: 100vw;
-  min-width: 60vw;
-  width: 95%;
-  margin: 0 auto;
-  min-height: 200px;
-  padding: 10px;
+  margin: 2rem auto;
+  background-color: ${colors.tertiaryColor};
+  color: ${colors.primaryColor};
+  border-radius: 12px;
+  width: 100%;
+  padding: 3rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
   h1 {
-    font-size: 3rem;
-    margin-top: 10px;
+    font-size: 2.8rem;
+    margin: 0 0 2rem 0;
     color: ${colors.secondaryColor};
+    text-align: left;
+
+    &::after {
+      width: 60px;
+      margin: 1rem 0;
+    }
   }
+
   h2 {
-    font-size: 30px;
-    font-weight: bold;
+    font-size: 2.4rem;
+    font-weight: 600;
     text-align: center;
+    margin-bottom: 2rem;
   }
+
   section {
-    margin-top: 10px;
+    margin-top: 2rem;
   }
+
   p {
-    margin-top: 10px;
-    font-size: 2rem;
+    margin: 1.5rem 0;
+    font-size: 1.8rem;
+    line-height: 1.6;
     color: ${colors.primaryColor};
-    background-color: ${colors.tertiaryColor};
-    padding: 1rem;
-    border-radius: 8px;
-    border: 3px solid ${colors.secondaryColor};
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
+    border: none;
   }
 `;

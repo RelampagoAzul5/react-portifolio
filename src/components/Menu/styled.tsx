@@ -1,5 +1,4 @@
-// styled.ts
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import {
   primaryColor,
   secondaryColor,
@@ -9,20 +8,32 @@ import {
 export const Header = styled.header`
   display: flex;
   flex-direction: column;
+  z-index: 1000;
 
   .menu {
-    overflow: hidden;
     background-color: ${primaryColor};
     position: fixed;
     top: 0;
     left: 0;
-    width: 32rem;
-    min-height: 90vh;
-    height: 100%;
+    width: 320px;
+    height: 100vh;
+    max-height: -webkit-fill-available;
+    min-height: 100dvh;
     display: flex;
     flex-direction: column;
     transform: translateX(-100%);
-    transition: transform 0.5s ease-in-out;
+    transition: transform 0.3s ease;
+    z-index: 1000;
+    box-sizing: border-box;
+    overflow: hidden;
+
+    @media (min-width: 1025px) {
+      transform: translateX(0);
+    }
+
+    &.visible {
+      transform: translateX(0);
+    }
   }
 
   .menu.visible {
@@ -32,159 +43,212 @@ export const Header = styled.header`
   a {
     text-decoration: none;
     color: ${tertiaryColor};
+    transition: all 0.2s ease;
   }
 
   div.links {
     display: flex;
     flex-direction: column;
-    margin-top: 1rem;
-    border-top: 1px solid ${tertiaryColor};
+    margin-top: 1.5rem;
+    gap: 1.2rem;
+    padding: 0 2rem;
   }
 
   a.item {
-    font-size: 2.9rem;
-    width: 93%;
-    margin: 0 auto;
-    padding: 0 1rem;
-    justify-content: center;
-    margin-top: 1rem;
+    font-size: 2.2rem;
+    padding: 1.5rem 2rem;
+    border-radius: 10px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
   }
 
   .selected {
-    transition: all 200ms ease-in-out;
     background-color: ${secondaryColor};
-    border-radius: 4px;
+    color: white;
+    font-weight: 600;
+
+    &:hover {
+      background-color: ${secondaryColor};
+      opacity: 0.9;
+    }
   }
 
   .menu-footer {
     margin-top: auto;
-    font-size: 2rem;
+    font-size: 1.4rem;
     text-align: center;
-    padding: 1rem 0;
-    border-top: 1px solid ${tertiaryColor};
-    color: ${tertiaryColor};
-
-    a {
-      color: ${secondaryColor};
-      text-decoration: none;
-    }
+    padding: 1.5rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.7);
   }
 
   .my-icon {
-    border-bottom: 1px solid ${tertiaryColor};
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 3rem 2rem;
+    margin-bottom: 2.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
   }
 
   .my-icon img {
-    max-height: 14rem;
-    border-radius: 360px;
-    background-color: #f7f7f7;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid ${secondaryColor};
+    background-color: ${tertiaryColor};
   }
 
   .my-icon .menu-infos {
-    margin-top: 3rem;
-    margin-left: 1rem;
     display: flex;
     flex-direction: column;
-    word-break: break-word;
-    white-space: normal;
-    overflow-wrap: break-word;
+    gap: 0.8rem;
   }
 
-  .my-icon .menu-infos p {
+  .my-icon .menu-infos p.name {
     color: ${tertiaryColor};
-    font-size: 2rem;
-    margin-top: 1rem;
+    font-size: 2.4rem;
+    font-weight: 600;
+    margin: 0;
   }
 
-  .my-icon .menu-infos a {
-    margin-left: 0.5rem;
-    margin-top: 1rem;
+  .my-icon .menu-infos p.role {
     color: ${secondaryColor};
-    font-size: 1.6rem;
-    font-weight: bold;
+    font-size: 2rem;
+    opacity: 0.9;
   }
 
   .toggle-menu {
-    font-size: 3rem;
-    color: ${secondaryColor};
-    top: 1rem;
-    left: 1rem;
-    background: none;
+    font-size: 2.8rem;
+    color: ${tertiaryColor};
+    background-color: ${primaryColor};
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 2rem;
+    left: 2rem;
     border: none;
     position: fixed;
     z-index: 101;
     cursor: pointer;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: ${secondaryColor};
+      transform: scale(1.05);
+    }
+
+    @media (min-width: 1025px) {
+      display: none;
+    }
   }
+
   .menu-icons {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
-    background-color: ${tertiaryColor};
-    margin: 0 auto;
-    width: 30rem;
-    margin-top: 1rem;
-    border-radius: 40px;
-    padding: 0.2rem;
+    gap: 2rem;
+    margin: 0.5rem 0;
   }
-  .menu-icons .logo {
-    width: 6rem;
-    border-radius: 40px;
-    padding: 0.1rem;
+
+  .menu-icons svg {
+    width: 36px;
+    height: 36px;
+    transition: transform 0.2s ease;
+    color: ${tertiaryColor};
   }
-  .menu-icons .Instagram {
-    padding: 0.4rem;
-    width: 5rem;
-    border-radius: 10px;
-  }
+
   .icon {
     position: relative;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
+
   .tooltip {
-    font-size: 13px;
+    font-size: 1.3rem;
     visibility: hidden;
     opacity: 0;
     width: max-content;
+    background-color: ${primaryColor};
     color: white;
-    font-weight: bold;
+    font-weight: 500;
     text-align: center;
-    padding: 6px 12px;
-    border-radius: 8px;
+    padding: 0.6rem 1.2rem;
+    border-radius: 5px;
     position: absolute;
-
+    top: 120%;
     left: 50%;
     transform: translateX(-50%);
-    transition: opacity 0.3s;
+    transition: all 0.2s ease;
     z-index: 1;
+    white-space: nowrap;
   }
 
-  .instagram-tp {
-    background-color: rgba(76, 124, 164, 0.8);
-    bottom: -45%;
+  .icon:hover {
+    svg {
+      transform: scale(1.15);
+      color: ${secondaryColor};
+    }
+
+    .tooltip {
+      visibility: visible;
+      opacity: 1;
+      top: 110%;
+    }
   }
 
-  .github-tp {
-    background-color: rgba(0, 0, 0, 0.8);
-    bottom: -35%;
+  .menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    display: none;
+
+    &.visible {
+      display: block;
+      @supports (height: 100dvh) {
+        height: 100dvh;
+      }
+    }
+  }
+`;
+
+export const MenuGlobalStyles = css`
+  :root {
+    --menu-width: 320px;
   }
 
-  .linkedin-tp {
-    background-color: rgba(76, 124, 164, 0.8);
-    bottom: -35%;
+  @media (max-width: 1024px) {
+    body {
+      padding-left: 0;
+    }
   }
 
-  .Instagram:hover {
-    background-color: rgba(76, 124, 164, 0.2);
+  @media (min-width: 1025px) {
+    body {
+      padding-left: var(--menu-width);
+    }
   }
-  .Github:hover {
-    background-color: rgba(0, 0, 0, 0.2);
-  }
-  .Linkedin:hover {
-    background-color: rgba(76, 124, 164, 0.2);
-  }
-  .icon:hover .tooltip {
-    visibility: visible;
-    opacity: 1;
+
+  html,
+  body {
+    height: 100%;
+    overflow-x: hidden;
   }
 `;

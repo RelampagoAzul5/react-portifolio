@@ -1,12 +1,10 @@
 import React from 'react';
-
-import { ContactEmailSt } from './styled';
+import { EmailContent } from '../../styled';
 
 export default function ContactEmail() {
   return (
-    <ContactEmailSt>
-      <h3>Email</h3>
+    <EmailContent>
       <p>giovannihpf@gmail.com</p>
-    </ContactEmailSt>
+    </EmailContent>
   );
 }

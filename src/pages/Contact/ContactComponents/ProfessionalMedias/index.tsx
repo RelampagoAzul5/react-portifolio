@@ -1,32 +1,31 @@
+// ProfessionalMedias.tsx
 import React from 'react';
-import { MediasInfo, ContactInfoLink } from '../../styled';
-
-import IgIcon from '../../icons/IgIcon';
-import GhIcon from '../../icons/GhIcon';
-import LdIcon from '../../icons/LdIcon';
+import { ContactItem } from '../../styled';
+import GithubAppIcon from '../../../../icons/MediaIcons/GithubIcon';
+import LinkedinIcon from '../../../../icons/MediaIcons/LinkedInIcon';
+import InstagramAppIcon from '../../../../icons/MediaIcons/InstagramAppIcon';
 
 export default function ProfessionalMedias() {
   return (
-    <MediasInfo>
-      <h3>Redes Profissionais</h3>
-      <ContactInfoLink href="https://github.com/RelampagoAzul5" target="_blank">
-        <GhIcon />
-        RelampagoAzul5
-      </ContactInfoLink>
-      <ContactInfoLink
+    <>
+      <ContactItem href="https://github.com/RelampagoAzul5" target="_blank">
+        <GithubAppIcon />
+        <span>RelampagoAzul5</span>
+      </ContactItem>
+      <ContactItem
         href="https://www.linkedin.com/in/giovanni-henrique-de-paula-fernandes-a7512b199/"
         target="_blank"
       >
-        <LdIcon />
-        Giovanni Henrique
-      </ContactInfoLink>
-      <ContactInfoLink
+        <LinkedinIcon />
+        <span>Giovanni Henrique</span>
+      </ContactItem>
+      <ContactItem
         href="https://www.instagram.com/tech_relampago/"
         target="_blank"
       >
-        <IgIcon />
-        @tech_relampago
-      </ContactInfoLink>
-    </MediasInfo>
+        <InstagramAppIcon />
+        <span>@tech_relampago</span>
+      </ContactItem>
+    </>
   );
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Section, Main, ContactInfo } from './styled';
+import { Main, Section, ContactGrid, ContactCard } from './styled';
 import SocialMedias from './ContactComponents/SocialMedias';
 import ProfessionalMedias from './ContactComponents/ProfessionalMedias';
 import ContactEmail from './ContactComponents/ContactEmail';
@@ -9,12 +9,23 @@ export function Contact() {
     <Main>
       <h1>Contato</h1>
       <Section>
-        <h2>Informações pra contato</h2>
-        <ContactInfo>
-          <SocialMedias />
-          <ProfessionalMedias />
-        </ContactInfo>
-        <ContactEmail />
+        <h2>Giovanni Henrique de Paula Fernandes</h2>
+
+        <ContactGrid>
+          <ContactCard>
+            <h3>Redes Sociais</h3>
+            <SocialMedias />
+          </ContactCard>
+
+          <ContactCard>
+            <h3>Redes Profissionais</h3>
+            <ProfessionalMedias />
+          </ContactCard>
+
+          <ContactCard>
+            <ContactEmail />
+          </ContactCard>
+        </ContactGrid>
       </Section>
     </Main>
   );
