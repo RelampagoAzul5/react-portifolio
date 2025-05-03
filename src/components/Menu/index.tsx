@@ -30,12 +30,12 @@ export function Menu() {
 
   useEffect(() => {
     const handleResize = () => {
-      const shouldShowToggle = window.innerWidth <= 1024; // 1024px como breakpoint
-      setIsVisible(!shouldShowToggle); // Visível em desktop, escondido em mobile inicialmente
+      const shouldShowToggle = window.innerWidth <= 1024;
+      setIsVisible(!shouldShowToggle);
       setShowToggleButton(shouldShowToggle);
     };
 
-    handleResize(); // Configura o estado inicial
+    handleResize();
 
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
