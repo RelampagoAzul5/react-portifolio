@@ -22,7 +22,7 @@
       "description": "Página de Portifolio com o Intuito de mostrar meus projetos, feita inteiramente para praticar conteitos básicos de React",
       "technologies": ["HTML", "CSS", "JavaScript"],
       "image": "/assets/img/ProjectImages/portifolio.png",
-      "link": "https://relampagoazul-x-men.netlify.app"
+      "link": "https://myreactportifolio.netlify.app/portifolio"
     }
   ],
   "BackEnd": [],
