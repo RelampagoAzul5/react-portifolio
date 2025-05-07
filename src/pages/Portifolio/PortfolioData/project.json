@@ -20,7 +20,7 @@
       "id": 3,
       "title": "Portifolio",
       "description": "Página de Portifolio com o Intuito de mostrar meus projetos, feita inteiramente para praticar conteitos básicos de React. O intuito do projeto era criar uma página de portifólio para mim totalmente original, para que eu pudesse tanto praticar conceitos básicos e funcionalidades do react, quanto ter uma página a qual eu pudesse usar como vitrine para os meus projetos.",
-      "technologies": ["HTML", "CSS", "JavaScript"],
+      "technologies": ["HTML", "CSS", "JavaScript", "React.js"],
       "image": "/assets/img/ProjectImages/portifolio.png",
       "link": "https://myreactportifolio.netlify.app/portifolio"
     }
